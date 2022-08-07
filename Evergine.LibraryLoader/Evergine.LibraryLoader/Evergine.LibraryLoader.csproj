@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>net6.0;netstandard2.0;net472</TargetFrameworks>
+	  <Description>Helpers project to load native libraries in Net projects.</Description>
+	  <PackageProjectUrl>https://evergine.com/</PackageProjectUrl>
+	  <RepositoryUrl>https://github.com/EvergineTeam/DllRegister</RepositoryUrl>
+	  <PackageTags>dllimport;csharp;evergine;library</PackageTags>
+	  <PackageIcon>icon.png</PackageIcon>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	  <Version>0.0.3</Version>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<None Remove="icon.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="icon.png">
+			<PackagePath>\</PackagePath>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>True</Pack>
+		</Content>
+	</ItemGroup>
+
+</Project>
