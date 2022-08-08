@@ -62,6 +62,9 @@ namespace Evergine.LibraryLoader
             }
         }
 
+        /// <summary>
+        /// Free all the previously registerd native libraries.
+        /// </summary>
         public void Free()
         {
             foreach (var lib in libraries)
