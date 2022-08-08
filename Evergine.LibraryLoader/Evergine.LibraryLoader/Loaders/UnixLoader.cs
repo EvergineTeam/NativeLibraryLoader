@@ -7,8 +7,12 @@ using System.Text;
 
 namespace Evergine.LibraryLoader.Loaders
 {
+    /// <summary>
+    /// This class represent a unix platform native library.
+    /// </summary>
     public class UnixLoader : NativeLoader
     {
+        /// <inheritdoc/>
         public override IntPtr NativeLoad(string libraryName)
         {
             Libdl.dlerror();
@@ -26,6 +30,7 @@ namespace Evergine.LibraryLoader.Loaders
             return handle;
         }
 
+        /// <inheritdoc/>
         public override void NativeFree(IntPtr libraryHandle)
         {
             Libdl.dlclose(libraryHandle);

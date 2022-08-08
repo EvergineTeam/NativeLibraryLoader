@@ -6,8 +6,12 @@ using System.Text;
 
 namespace Evergine.LibraryLoader.Loaders
 {
+    /// <summary>
+    /// This class represent a NET native library, works on NetCore or higher.
+    /// </summary>
     public class NetLoader : NativeLoader
     {
+        /// <inheritdoc/>
         public override IntPtr NativeLoad(string libraryName)
         {
 #if NET5_0_OR_GREATER
@@ -18,6 +22,7 @@ namespace Evergine.LibraryLoader.Loaders
 #endif
         }
 
+        /// <inheritdoc/>
         public override void NativeFree(IntPtr libraryHandle)
         {
 #if NET5_0_OR_GREATER

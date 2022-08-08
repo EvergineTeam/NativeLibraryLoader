@@ -119,6 +119,10 @@ namespace Evergine.LibraryLoader
             return Platform.Undefined;
         }
 
+        /// <summary>
+        /// Gets current executing architecture.
+        /// </summary>
+        /// <returns>Executing architecture if found. Returns <see cref="Architecture.Undefined"/> if architecture could not be determined.</returns>
         public static Architecture GetArchitecture()
         {
             var ar = RuntimeInformation.ProcessArchitecture;
@@ -134,35 +138,6 @@ namespace Evergine.LibraryLoader
                     return Architecture.X86;
                 default:
                     return Architecture.Undefined;
-            }
-        }
-
-        /// <summary>
-        /// Get the enum platform type as string.
-        /// </summary>
-        /// <param name="value">The platform type to convert.</param>
-        /// <returns>The name of the selected platform.</returns>
-        public static string GetPlatformName(Platform value)
-        {
-            switch (value)
-            {
-                case Platform.Windows:
-                    return "windows";
-                case Platform.Android:
-                    return "android";
-                case Platform.iOS:
-                    return "ios";
-                case Platform.Linux:
-                    return "linux";
-                case Platform.MacOS:
-                    return "osx";
-                case Platform.UWP:
-                    return "uwp";
-                case Platform.Web:
-                    return "web";
-                case Platform.Undefined:
-                default:
-                    return string.Empty;
             }
         }
     }

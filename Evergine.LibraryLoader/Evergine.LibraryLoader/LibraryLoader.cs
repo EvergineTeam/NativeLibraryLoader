@@ -6,8 +6,14 @@ using System.Collections.Generic;
 
 namespace Evergine.LibraryLoader
 {
+    /// <summary>
+    /// Provides a simple API for loading native libraries.
+    /// </summary>
     public class LibraryLoader
     {
+        /// <summary>
+        /// Singleton instance.
+        /// </summary>
         public static readonly LibraryLoader Instance = new LibraryLoader();
 
         private NativeLoader loader;
@@ -34,12 +40,20 @@ namespace Evergine.LibraryLoader
 #endif
         }
 
+        /// <summary>
+        /// Register a new native library to load.
+        /// </summary>
+        /// <param name="nativeLib"></param>
+        /// <returns></returns>
         public LibraryLoader Register(Library nativeLib)
         {
             libraries.Add(nativeLib);
             return this;
         }
 
+        /// <summary>
+        /// Load all the previously registered native libraries.
+        /// </summary>
         public void Load()
         {
             foreach (var lib in libraries)
