@@ -1,0 +1,31 @@
+name: CD Nuget.org
+# This CD builds and publish what is currently on the repo.
+# Addionally, periodically updates the submodules and try to publish a new nuget.
+on:
+  workflow_dispatch:
+    inputs:
+      publishEnabled:
+        description: "Publish to Nuget.org"
+        type: boolean
+        required: false
+        default: false
+
+env:
+  nugetsPath: "nupkgs"
+
+jobs:
+  build_publish:
+    name: Generate nuget
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/generate-nugets
+        id: nugets
+        with:
+          Version: 0.0.${{ github.run_number }}
+          NugetsPath: ${{ env.nugetsPath }}
+      - uses: ./.github/actions/publish-nugets
+        if: ${{ success() && github.event.inputs.publishEnabled == 'true' }}
+        with:
+          NugetsPath: ${{ env.nugetsPath }}
+          Token: ${{ secrets.EVERGINE_NUGETORG_TOKEN }}
