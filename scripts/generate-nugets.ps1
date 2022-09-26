@@ -12,7 +12,7 @@
 
 param (
     [Parameter(Mandatory = $true)][string]$version = "",
-    [string]$outputFolderBase = "nupkgs",
+    [string]$outputfolder = "nupkgs",
     [string]$buildVerbosity = "normal",
     [string]$buildConfiguration = "Release"
 )
@@ -43,11 +43,11 @@ LogDebug "############## VARIABLES ##############"
 LogDebug "Version.............: $version"
 LogDebug "Build configuration.: $buildConfiguration"
 LogDebug "Build verbosity.....: $buildVerbosity"
-LogDebug "Output folder.......: $outputFolderBase"
+LogDebug "Output folder.......: $outputfolder"
 LogDebug "#######################################"
 
 # Create output folder
-$outputFolder = Join-Path $outputFolderBase $version
+$outputFolder = Join-Path $outputfolder $version
 New-Item -ItemType Directory -Force -Path $outputFolder
 $absoluteOutputFolder = Resolve-Path $outputFolder
 
