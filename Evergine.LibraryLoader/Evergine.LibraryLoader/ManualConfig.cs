@@ -1,5 +1,8 @@
 ﻿// Copyright © Plain Concepts S.L.U. All rights reserved. Use is subject to license terms.
 
+using System.IO;
+using System.Reflection;
+
 namespace Evergine.LibraryLoader
 {
     /// <summary>
@@ -39,6 +42,9 @@ namespace Evergine.LibraryLoader
 
         /// <inheritdoc/>
         public string OSX_x64 { get; private set; }
+
+        /// <inheritdoc/>
+        public string BaseDirectory { get; private set; }
 
         private ManualConfig()
         {
@@ -181,6 +187,25 @@ namespace Evergine.LibraryLoader
         {
             this.OSX_x64 = path;
             return this;
+        }
+
+        /// <inheritdoc/>
+        public IConfig WithBaseDirectory(string baseDirectory)
+        {
+            this.BaseDirectory = baseDirectory;
+            return this;
+        }
+
+        /// <inheritdoc/>
+        public IConfig WithAssemblyDirectory(Assembly assembly)
+        {
+            return WithBaseDirectory(System.IO.Path.GetDirectoryName(assembly.Location));
+        }
+
+        /// <inheritdoc/>
+        public IConfig WithTypeAssemblyDirectory<T>()
+        {
+            return WithAssemblyDirectory(typeof(T).Assembly);
         }
     }
 }
