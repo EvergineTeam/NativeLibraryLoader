@@ -42,6 +42,18 @@ namespace Evergine.LibraryLoader
         public string Linux_ARM64 => "runtimes/linux-arm64/native";
 
         /// <inheritdoc/>
+        public string Android_x64 => "runtimes/android-x64/native";
+
+        /// <inheritdoc/>
+        public string Android_x86 => "runtimes/android-x86/native";
+
+        /// <inheritdoc/>
+        public string Android_ARM => "runtimes/android-arm/native";
+
+        /// <inheritdoc/>
+        public string Android_ARM64 => "runtimes/android-arm64/native";
+
+        /// <inheritdoc/>
         public string OSX_ARM64 => "runtimes/osx-arm64/native";
 
         /// <inheritdoc/>

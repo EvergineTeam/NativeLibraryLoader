@@ -65,11 +65,17 @@ namespace Evergine.LibraryLoader
                     libName = lib.AndroidLibName;
                     switch (architecture)
                     {
+                        case Architecture.X86:
+                            runtime = lib.Config.Android_x86;
+                            break;
+                        case Architecture.X64:
+                            runtime = lib.Config.Android_x64;
+                            break;
                         case Architecture.ARM32:
-                            runtime = lib.Config.Linux_ARM;
+                            runtime = lib.Config.Android_ARM;
                             break;
                         case Architecture.ARM64:
-                            runtime = lib.Config.Linux_ARM64;
+                            runtime = lib.Config.Android_ARM64;
                             break;
                     }
                     break;
@@ -86,6 +92,12 @@ namespace Evergine.LibraryLoader
                             break;
                         case Architecture.X64:
                             runtime = lib.Config.Linux_x86;
+                            break;
+                        case Architecture.ARM32:
+                            runtime = lib.Config.Linux_ARM;
+                            break;
+                        case Architecture.ARM64:
+                            runtime = lib.Config.Linux_ARM64;
                             break;
                     }
 

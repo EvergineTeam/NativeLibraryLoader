@@ -60,6 +60,26 @@ namespace Evergine.LibraryLoader
         string Linux_ARM64 { get; }
 
         /// <summary>
+        /// Android platform and x64 architecture path.
+        /// </summary>
+        string Android_x64 { get; }
+
+        /// <summary>
+        /// Android platform and x86 architecture path.
+        /// </summary>
+        string Android_x86 { get; }
+
+        /// <summary>
+        /// Android plataform and arm32 architecture path.
+        /// </summary>
+        string Android_ARM { get; }
+
+        /// <summary>
+        /// Android platform and arm64 architecture path.
+        /// </summary>
+        string Android_ARM64 { get; }
+
+        /// <summary>
         /// MacOS platform and arm64 architecture path.
         /// </summary>
         string OSX_ARM64 { get; }
