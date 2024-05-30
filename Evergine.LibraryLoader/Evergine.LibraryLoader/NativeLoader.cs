@@ -42,9 +42,7 @@ namespace Evergine.LibraryLoader
             switch (os)
             {
                 case Platform.Windows:
-                case Platform.UWP:
                     libName = lib.WinLibName;
-
                     switch (architecture)
                     {
                         case Architecture.X86:
@@ -100,11 +98,28 @@ namespace Evergine.LibraryLoader
                             runtime = lib.Config.Linux_ARM64;
                             break;
                     }
-
                     break;
                 case Platform.MacOS:
                     libName = lib.OSXLibName;
                     runtime = lib.Config.OSX_ARM64;
+                    break;
+                case Platform.UWP:
+                    libName = lib.WinLibName;
+                    switch(architecture)
+                    {
+                        case Architecture.X86:
+                            runtime = lib.Config.UWP_x64;
+                            break;
+                        case Architecture.X64:
+                            runtime = lib.Config.UWP_x86;
+                            break;
+                        case Architecture.ARM32:
+                            runtime = lib.Config.UWP_ARM;
+                            break;
+                        case Architecture.ARM64:
+                            runtime = lib.Config.UWP_ARM64;
+                            break;
+                    }
                     break;
                 case Platform.Undefined:
                 default:

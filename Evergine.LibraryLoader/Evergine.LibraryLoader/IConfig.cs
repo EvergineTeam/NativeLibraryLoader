@@ -40,14 +40,14 @@ namespace Evergine.LibraryLoader
         string IOS_ARM64 { get; }
 
         /// <summary>
-        /// Linux platform and x64 architecture path.
-        /// </summary>
-        string Linux_x64 { get; }
-
-        /// <summary>
         /// Linux platform and x86 architecture path.
         /// </summary>
         string Linux_x86 { get; }
+
+        /// <summary>
+        /// Linux platform and x64 architecture path.
+        /// </summary>
+        string Linux_x64 { get; }
 
         /// <summary>
         /// Linux plataform and arm32 architecture path.
@@ -60,14 +60,14 @@ namespace Evergine.LibraryLoader
         string Linux_ARM64 { get; }
 
         /// <summary>
-        /// Android platform and x64 architecture path.
-        /// </summary>
-        string Android_x64 { get; }
-
-        /// <summary>
         /// Android platform and x86 architecture path.
         /// </summary>
         string Android_x86 { get; }
+
+        /// <summary>
+        /// Android platform and x64 architecture path.
+        /// </summary>
+        string Android_x64 { get; }
 
         /// <summary>
         /// Android plataform and arm32 architecture path.
@@ -80,14 +80,35 @@ namespace Evergine.LibraryLoader
         string Android_ARM64 { get; }
 
         /// <summary>
+        /// MacOS platform and x64 architecture path.
+        /// </summary>
+        string OSX_x64 { get; }
+
+        /// <summary>
         /// MacOS platform and arm64 architecture path.
         /// </summary>
         string OSX_ARM64 { get; }
 
         /// <summary>
-        /// MacOS platform and x64 architecture path.
+        /// UWP platform and x86 architecture path.
         /// </summary>
-        string OSX_x64 { get; }
+        string UWP_x86 { get; }
+
+        /// <summary>
+        /// UWP platform and x64 architecture path.
+        /// </summary>
+        string UWP_x64 { get; }
+
+        /// <summary>
+        /// UWP platform and arm32 architecture path.
+        /// </summary>
+        string UWP_ARM { get; }
+
+        /// <summary>
+        /// UWP platform and ARM64 architecture path.
+        /// </summary>
+        string UWP_ARM64 { get; }
+
 
         /// <summary>
         /// Set the base directory used to look for native libraries.
