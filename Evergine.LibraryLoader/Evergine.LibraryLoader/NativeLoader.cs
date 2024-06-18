@@ -100,6 +100,11 @@ namespace Evergine.LibraryLoader
             }
 
             string libPath = System.IO.Path.Combine(runtime, libName);
+            if (lib.Config.BaseDirectory != null)
+            {
+                libPath = System.IO.Path.Combine(lib.Config.BaseDirectory, libPath);
+            }
+
             lib.Handle = NativeLoad(libPath);
             
             return lib.Handle;
