@@ -42,7 +42,7 @@ namespace Evergine.LibraryLoader
             switch (os)
             {
                 case Platform.Windows:
-                    libName = lib.WinLibName;
+                    libName = lib.WinLibName ?? $"{lib.LibName}.dll";
                     switch (architecture)
                     {
                         case Architecture.X86:
@@ -60,7 +60,7 @@ namespace Evergine.LibraryLoader
                     }
                     break;
                 case Platform.Android:
-                    libName = lib.AndroidLibName;
+                    libName = lib.AndroidLibName ?? $"{lib.LibName}.so";
                     switch (architecture)
                     {
                         case Architecture.X86:
@@ -78,11 +78,11 @@ namespace Evergine.LibraryLoader
                     }
                     break;
                 case Platform.iOS:
-                    libName = lib.IOSLibName;
+                    libName = lib.IOSLibName ?? $"{lib.LibName}.dylib";
                     runtime = lib.Config.IOS_ARM64;
                     break;
                 case Platform.Linux:
-                    libName = lib.LinuxLibName;
+                    libName = lib.LinuxLibName ?? $"{lib.LibName}.so";
                     switch (architecture)
                     {
                         case Architecture.X86:
@@ -100,12 +100,12 @@ namespace Evergine.LibraryLoader
                     }
                     break;
                 case Platform.MacOS:
-                    libName = lib.OSXLibName;
+                    libName = lib.OSXLibName ?? $"{lib.LibName}.dylib";
                     runtime = lib.Config.OSX_ARM64;
                     break;
                 case Platform.UWP:
-                    libName = lib.WinLibName;
-                    switch(architecture)
+                    libName = lib.WinLibName ?? $"{lib.LibName}.dll";
+                    switch (architecture)
                     {
                         case Architecture.X86:
                             runtime = lib.Config.UWP_x64;

@@ -15,6 +15,9 @@ namespace Evergine.LibraryLoader
         public static readonly IConfig Instance = new DefaultConfig();
 
         /// <inheritdoc/>
+        public string BaseDirectory { get; private set; }
+
+        /// <inheritdoc/>
         public string Windows_x86 => "runtimes/win-x86/native";
 
         /// <inheritdoc/>
@@ -70,9 +73,6 @@ namespace Evergine.LibraryLoader
 
         /// <inheritdoc/>
         public string UWP_ARM64 => "runtimes/win-arm64/nativeassets/uap10.0";
-
-        /// <inheritdoc/>
-        public string BaseDirectory { get; private set; }
 
         private DefaultConfig()
         { 
