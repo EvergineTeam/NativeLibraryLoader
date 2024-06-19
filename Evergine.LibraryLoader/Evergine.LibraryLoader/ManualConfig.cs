@@ -11,6 +11,9 @@ namespace Evergine.LibraryLoader
     public class ManualConfig : IConfig
     {
         /// <inheritdoc/>
+        public string BaseDirectory { get; private set; }
+
+        /// <inheritdoc/>
         public string Windows_x86 { get; private set; }
 
         /// <inheritdoc/>
@@ -26,10 +29,10 @@ namespace Evergine.LibraryLoader
         public string IOS_ARM64 { get; private set; }
 
         /// <inheritdoc/>
-        public string Linux_x64 { get; private set; }
+        public string Linux_x86 { get; private set; }
 
         /// <inheritdoc/>
-        public string Linux_x86 { get; private set; }
+        public string Linux_x64 { get; private set; }
 
         /// <inheritdoc/>
         public string Linux_ARM { get; private set; }
@@ -38,13 +41,34 @@ namespace Evergine.LibraryLoader
         public string Linux_ARM64 { get; private set; }
 
         /// <inheritdoc/>
+        public string Android_x86 { get; private set; }
+
+        /// <inheritdoc/>
+        public string Android_x64 { get; private set; }
+
+        /// <inheritdoc/>
+        public string Android_ARM { get; private set; }
+
+        /// <inheritdoc/>
+        public string Android_ARM64 { get; private set; }
+
+        /// <inheritdoc/>
         public string OSX_ARM64 { get; private set; }
 
         /// <inheritdoc/>
         public string OSX_x64 { get; private set; }
 
         /// <inheritdoc/>
-        public string BaseDirectory { get; private set; }
+        public string UWP_x86 { get; private set; }
+
+        /// <inheritdoc/>
+        public string UWP_x64 { get; private set; }
+
+        /// <inheritdoc/>
+        public string UWP_ARM { get; private set; }
+
+        /// <inheritdoc/>
+        public string UWP_ARM64 { get; private set; }
 
         private ManualConfig()
         {

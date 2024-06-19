@@ -42,9 +42,7 @@ namespace Evergine.LibraryLoader
             switch (os)
             {
                 case Platform.Windows:
-                case Platform.UWP:
-                    libName = lib.WinLibName;
-
+                    libName = lib.WinLibName ?? $"{lib.LibName}.dll";
                     switch (architecture)
                     {
                         case Architecture.X86:
@@ -62,23 +60,29 @@ namespace Evergine.LibraryLoader
                     }
                     break;
                 case Platform.Android:
-                    libName = lib.AndroidLibName;
+                    libName = lib.AndroidLibName ?? $"{lib.LibName}.so";
                     switch (architecture)
                     {
+                        case Architecture.X86:
+                            runtime = lib.Config.Android_x86;
+                            break;
+                        case Architecture.X64:
+                            runtime = lib.Config.Android_x64;
+                            break;
                         case Architecture.ARM32:
-                            runtime = lib.Config.Linux_ARM;
+                            runtime = lib.Config.Android_ARM;
                             break;
                         case Architecture.ARM64:
-                            runtime = lib.Config.Linux_ARM64;
+                            runtime = lib.Config.Android_ARM64;
                             break;
                     }
                     break;
                 case Platform.iOS:
-                    libName = lib.IOSLibName;
+                    libName = lib.IOSLibName ?? $"{lib.LibName}.dylib";
                     runtime = lib.Config.IOS_ARM64;
                     break;
                 case Platform.Linux:
-                    libName = lib.LinuxLibName;
+                    libName = lib.LinuxLibName ?? $"{lib.LibName}.so";
                     switch (architecture)
                     {
                         case Architecture.X86:
@@ -87,12 +91,35 @@ namespace Evergine.LibraryLoader
                         case Architecture.X64:
                             runtime = lib.Config.Linux_x86;
                             break;
+                        case Architecture.ARM32:
+                            runtime = lib.Config.Linux_ARM;
+                            break;
+                        case Architecture.ARM64:
+                            runtime = lib.Config.Linux_ARM64;
+                            break;
                     }
-
                     break;
                 case Platform.MacOS:
-                    libName = lib.OSXLibName;
+                    libName = lib.OSXLibName ?? $"{lib.LibName}.dylib";
                     runtime = lib.Config.OSX_ARM64;
+                    break;
+                case Platform.UWP:
+                    libName = lib.WinLibName ?? $"{lib.LibName}.dll";
+                    switch (architecture)
+                    {
+                        case Architecture.X86:
+                            runtime = lib.Config.UWP_x64;
+                            break;
+                        case Architecture.X64:
+                            runtime = lib.Config.UWP_x86;
+                            break;
+                        case Architecture.ARM32:
+                            runtime = lib.Config.UWP_ARM;
+                            break;
+                        case Architecture.ARM64:
+                            runtime = lib.Config.UWP_ARM64;
+                            break;
+                    }
                     break;
                 case Platform.Undefined:
                 default:
