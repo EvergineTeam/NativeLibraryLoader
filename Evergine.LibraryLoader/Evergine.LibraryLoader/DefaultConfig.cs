@@ -15,6 +15,9 @@ namespace Evergine.LibraryLoader
         public static readonly IConfig Instance = new DefaultConfig();
 
         /// <inheritdoc/>
+        public string BaseDirectory { get; private set; }
+
+        /// <inheritdoc/>
         public string Windows_x86 => "runtimes/win-x86/native";
 
         /// <inheritdoc/>
@@ -30,10 +33,10 @@ namespace Evergine.LibraryLoader
         public string IOS_ARM64 => "runtimes/ios-arm64/native";
 
         /// <inheritdoc/>
-        public string Linux_x64 => "runtimes/linux-x64/native";
+        public string Linux_x86 => "runtimes/linux-x86/native";
 
         /// <inheritdoc/>
-        public string Linux_x86 => "runtimes/linux-x86/native";
+        public string Linux_x64 => "runtimes/linux-x64/native";
 
         /// <inheritdoc/>
         public string Linux_ARM => "runtimes/linux-arm/native";
@@ -42,13 +45,34 @@ namespace Evergine.LibraryLoader
         public string Linux_ARM64 => "runtimes/linux-arm64/native";
 
         /// <inheritdoc/>
-        public string OSX_ARM64 => "runtimes/osx-arm64/native";
+        public string Android_x86 => "runtimes/android-x86/native";
+
+        /// <inheritdoc/>
+        public string Android_x64 => "runtimes/android-x64/native";
+
+        /// <inheritdoc/>
+        public string Android_ARM => "runtimes/android-arm/native";
+
+        /// <inheritdoc/>
+        public string Android_ARM64 => "runtimes/android-arm64/native";
 
         /// <inheritdoc/>
         public string OSX_x64 => "runtimes/osx-x64/native";
 
         /// <inheritdoc/>
-        public string BaseDirectory { get; private set; }
+        public string OSX_ARM64 => "runtimes/osx-arm64/native";
+
+        /// <inheritdoc/>
+        public string UWP_x86 => "runtimes/win-x86/nativeassets/uap10.0";
+
+        /// <inheritdoc/>
+        public string UWP_x64 => "runtimes/win-x64/nativeassets/uap10.0";
+
+        /// <inheritdoc/>
+        public string UWP_ARM => "runtimes/win-arm/nativeassets/uap10.0";
+
+        /// <inheritdoc/>
+        public string UWP_ARM64 => "runtimes/win-arm64/nativeassets/uap10.0";
 
         private DefaultConfig()
         { 
